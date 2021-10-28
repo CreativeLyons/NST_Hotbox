@@ -2,12 +2,13 @@
 #
 # AUTOMATICALLY GENERATED FILE TO BE USED BY W_HOTBOX
 #
-# NAME: Output: Alpha
-# COLOR: #699e69
-# TEXTCOLOR: #ffffff
+# NAME: Toggle Premult Input
 #
 #----------------------------------------------------------------------------------------------------------
 
 ns = nuke.selectedNodes()
 for n in ns:
-    n.knob('output1').setValue('alpha')
+    knob = n.knob('premultInput')
+    currentState = knob.getValue()
+    newState = abs(currentState-1)
+    knob.setValue(newState)
